@@ -153,10 +153,17 @@ def simple_search_dag(
                bbs_sliced.append(bb[lb:ub])
             bbs = bbs_sliced
 
+         print(bbs)
          for ibb, bb in enumerate(bbs):
             print("bblocks", ibb)
             for b in bb:
-               print("   ", bytes(b.file).decode("utf-8"))
+               print(b)
+               print(type(b))
+               print(b.file)
+               print(b.base)
+               print(bytes(b.base))
+               print(bytes(b.base).decode("utf-8"))
+               #print("   ", bytes(b.file).decode("utf-8"))
 
       bases = [Counter(bytes(b.base).decode("utf-8") for b in bbs0) for bbs0 in bbs]
       assert len(bbs) == len(queries)
